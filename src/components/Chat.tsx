@@ -85,7 +85,12 @@ const ChatApp: React.FC = () => {
     setInput('');
 
     const aiResponse = await openAI.getCompletion(input);
-    setMessages((prevMessages) => [...prevMessages, { sender: 'ai', text: aiResponse }]);
+    setMessages((prevMessages) => [
+      ...prevMessages,
+      {
+        sender: 'ai', text: aiResponse || '',
+      }
+    ]);
   };
 
   return (
