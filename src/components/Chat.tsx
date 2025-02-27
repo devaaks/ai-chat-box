@@ -3,7 +3,6 @@ import {
   AppBar,
   Toolbar,
   Typography,
-  Container,
   Paper,
   TextField,
   IconButton,
@@ -13,13 +12,13 @@ import {
   ListItemAvatar,
   Avatar,
   Box,
-  Slide,
   Fade,
   Divider,
 } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import { styled } from '@mui/material/styles';
 import { useOpenAI } from '../hooks/use-open-ai';
+import parse from 'html-react-parser';
 
 interface Message {
   sender: 'user' | 'ai';
@@ -106,14 +105,14 @@ const ChatApp: React.FC = () => {
                   <ListItemAvatar>
                     <Avatar sx={{ bgcolor: 'primary.main' }}>U</Avatar>
                   </ListItemAvatar>
-                  <ListItemText primary={msg.text} />
+                  <ListItemText primary={msg.text} sx={{ whiteSpace: 'pre-wrap' }} />
                 </UserMessage>
               ) : (
                 <AIMessage>
                   <ListItemAvatar>
-                    <Avatar>🤖</Avatar>
+                    <Avatar>👧🏻</Avatar>
                   </ListItemAvatar>
-                  <ListItemText primary={msg.text} />
+                  <ListItemText primary={parse(msg.text)} />
                 </AIMessage>
               )}
             </Fade>

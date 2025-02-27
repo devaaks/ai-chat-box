@@ -17,6 +17,8 @@
     "@mui/material": "^6.4.5",
     "@mui/styled-engine-sc": "^6.4.3",
     "@mui/styles": "^6.4.5",
+    "html-react-parser": "^5.2.2",
+    "marked": "^15.0.7",
     "openai": "^4.85.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
